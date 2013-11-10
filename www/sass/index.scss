@@ -88,11 +88,20 @@ input[type="submit"] {
     color: white;
     text-shadow: 0 1px 1px rgba(0,0,0,.5);
     border-bottom: 2px solid #2359DA;
+    box-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 25px 0 rgba(255,255,255,.1) inset;
     &:active, &:focus {
         outline: none;
         background-color: #1349CA;
         border-bottom: 2px solid #0339BA;
     }
+}
+
+.full-button {
+    @extend input[type="submit"];
+    @extend input;
+    display: block;
+    text-align: center;
+    text-decoration: none;
 }
 
 // ============================================================ //

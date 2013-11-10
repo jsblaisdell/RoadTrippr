@@ -27,28 +27,11 @@
     </head>
     <body>
         <div class="header">
-            <a href="#"></a>
             <h1>RoadTrippr</h1>
         </div>
         <div class="wrapper">
-            <div class="results"></div>
         </div>
 
-        <div id="templates">
-            <script class="result" type="text/template">
-                <div class="result">
-                    <div class="title-section">
-                        <img src="<%= img_url %>" alt="result">
-                        <h2><%= title %></h2>
-                        <span><%= distance %></span>
-                    </div>
-                    <div class="info-section">
-                        <p><%= description %></p>
-                        <a href="#">Bookmark</a>
-                    </div>
-                </div>
-            </script>
-        </div>
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/underscore.js"></script>
@@ -56,35 +39,6 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
-        </script>
-        <script type="text/javascript">
-            // Test Data
-            var result = {
-                img_url: "http://placekitten.com/200/200",
-                title: 'Marker',
-                distance: '10.2 Miles',
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, est, ad, ex minus voluptas cumque nulla laborum velit odio doloribus saepe omnis suscipit tenetur obcaecati molestiae deserunt maxime deleniti aut."
-            }
-
-            // Create underscore template
-            var resultTemplateHtml = $('#templates .result').html();
-            var resultTemplate = _.template(resultTemplateHtml);
-
-            // Result view
-            var ResultView = Backbone.View.extend({
-                render: function () {
-                    var newHtml = resultTemplate(result); // result.toJSON()
-                    $(this.el).html(newHtml);
-                }
-            });
-
-            // Set element
-            var resultView = new ResultView({
-                el: '.results'
-            });
-
-            // Render view
-            resultView.render()
         </script>
     </body>
 </html>

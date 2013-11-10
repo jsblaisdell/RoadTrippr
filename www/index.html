@@ -30,12 +30,13 @@
             <h1>RoadTrippr</h1>
         </div>
         <div class="wrapper">
-            <form action="">
+            <form action="get">
                 <input type="text" placeholder="Where are you starting?">
                 <input type="text" placeholder="Where are you going?">
                 <input type="submit" value="Find what's out there!" class="btn">
             </form>
             <div class="results"></div>
+            <a href="map.html" class="full-button">View Map</a>
         </div>
 
         <div id="templates">
@@ -48,6 +49,7 @@
                     </div>
                     <div class="info-section">
                         <p><%= description %></p>
+                        <a href="<%= url %>" class="read-more">[read more]</a>
                     </div>
                 </div>
             </script>
@@ -66,13 +68,18 @@
                 img_url: "http://placekitten.com/200/200",
                 title: 'Marker 1',
                 distance: '10.2 Miles',
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, est, ad, ex minus voluptas cumque nulla laborum velit odio doloribus saepe omnis suscipit tenetur obcaecati molestiae deserunt maxime deleniti aut..."
+                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, est, ad, ex minus voluptas cumque nulla laborum velit odio doloribus saepe omnis suscipit tenetur obcaecati molestiae deserunt maxime deleniti aut...",
+                url: 'http://www.wikipedia.org/City'
             },{
                 img_url: "http://placekitten.com/300/300",
                 title: 'Marker 2',
                 distance: '7.4 Miles',
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, cumque aut suscipit nulla voluptates itaque repudiandae libero cum sunt similique nostrum nisi mollitia alias repellat quaerat qui delectus esse earum..."
+                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, cumque aut suscipit nulla voluptates itaque repudiandae libero cum sunt similique nostrum nisi mollitia alias repellat quaerat qui delectus esse earum...",
+                url: 'http://www.wikipedia.org/City'
             }]
+
+            // Name of Town/Location
+            // Coordinates
 
             // Create underscore template
             var resultTemplateHtml = $('#templates .result').html();
