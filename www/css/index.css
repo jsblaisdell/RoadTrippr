@@ -1,3 +1,4 @@
+@import url("http://fonts.googleapis.com/css?family=Lobster");
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
@@ -18,11 +19,12 @@ body {
 
 h1 {
   text-align: center;
-  color: #eee;
+  color: #f7fafd;
   line-height: 2em;
   margin: 0;
   background-color: rgba(255, 255, 255, 0.05);
-  text-shadow: 0 1px 4px 1px black; }
+  text-shadow: 0 1px 4px 1px black;
+  font-family: Lobster; }
 
 .wrapper {
   padding: .8rem;
@@ -58,10 +60,13 @@ input[type="submit"] {
 
 .result {
   background-color: #fff;
+  position: relative;
   padding: .5rem;
   margin-bottom: .8rem;
   border-radius: 8px;
-  box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.5); }
+  box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.5);
+  background-image: -webkit-linear-gradient(#f8f8fc, #e3e3f2);
+  background-image: linear-gradient(#f8f8fc, #e3e3f2); }
   .result:after {
     content: "";
     display: table;
@@ -72,11 +77,22 @@ input[type="submit"] {
   width: 40%;
   padding-right: .5rem;
   box-sizing: border-box; }
+  .title-section h2 {
+    margin: 0; }
   .title-section img {
     width: 100%; }
+  .title-section span {
+    opacity: .7;
+    font-style: italic; }
 
 .info-section {
   float: left;
   width: 60%; }
   .info-section p {
     margin: 0; }
+
+.read-more {
+  position: absolute;
+  bottom: .5rem;
+  right: .5rem;
+  color: #3369ea; }

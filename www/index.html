@@ -48,7 +48,6 @@
                     </div>
                     <div class="info-section">
                         <p><%= description %></p>
-                        <a href="#">Bookmark</a>
                     </div>
                 </div>
             </script>
@@ -63,28 +62,41 @@
         </script>
         <script type="text/javascript">
             // Test Data
-            var result = {
+            var results = [{
                 img_url: "http://placekitten.com/200/200",
-                title: 'Marker',
+                title: 'Marker 1',
                 distance: '10.2 Miles',
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, est, ad, ex minus voluptas cumque nulla laborum velit odio doloribus saepe omnis suscipit tenetur obcaecati molestiae deserunt maxime deleniti aut."
-            }
+                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, est, ad, ex minus voluptas cumque nulla laborum velit odio doloribus saepe omnis suscipit tenetur obcaecati molestiae deserunt maxime deleniti aut..."
+            },{
+                img_url: "http://placekitten.com/300/300",
+                title: 'Marker 2',
+                distance: '7.4 Miles',
+                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, cumque aut suscipit nulla voluptates itaque repudiandae libero cum sunt similique nostrum nisi mollitia alias repellat quaerat qui delectus esse earum..."
+            }]
 
             // Create underscore template
             var resultTemplateHtml = $('#templates .result').html();
             var resultTemplate = _.template(resultTemplateHtml);
 
             // Result view
-            var ResultView = Backbone.View.extend({
+            var ShowResultView = Backbone.View.extend({
+                initialize: function(options){
+                    this.results = options.results;
+                },
                 render: function () {
-                    var newHtml = resultTemplate(result); // result.toJSON()
-                    $(this.el).html(newHtml);
+                    $(this.el).empty();
+                    for (var i=0; i < this.results.length; i++) {
+                        var newHtml = resultTemplate(this.results[i]); // result.toJSON()
+                        $(this.el).append(newHtml);
+                    };
+                    return this;
                 }
             });
 
             // Set element
-            var resultView = new ResultView({
-                el: '.results'
+            var resultView = new ShowResultView({
+                el: $('.results'),
+                results: results
             });
 
             // Render view

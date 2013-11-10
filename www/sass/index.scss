@@ -2,6 +2,8 @@
 // ========================== GLOBAL ========================== //
 // ============================================================ //
 
+@import url("http://fonts.googleapis.com/css?family=Lobster");
+
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); // make transparent link selection, adjust last value opacity 0 to 1.0
 }
@@ -27,11 +29,9 @@ body {
     // );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    // font-size:12px;
     height:100%;
     margin:0px;
     padding:0px;
-    // text-transform:uppercase;
     width:100%;
 }
 
@@ -41,11 +41,12 @@ body {
 
 h1 {
     text-align: center;
-    color: #eee;
+    color: #f7fafd;
     line-height: 2em;
     margin: 0;
     background-color: rgba(255,255,255,.05);
     text-shadow: 0 1px 4px 1px black;
+    font-family: Lobster;
 }
 
 // ============================================================ //
@@ -100,10 +101,13 @@ input[type="submit"] {
 
 .result {
     background-color: #fff;
+    position: relative;
     padding: .5rem;
     margin-bottom: .8rem;
     border-radius: 8px;
     box-shadow: 0 1px 3px 0px rgba(0,0,0,.5);
+    background-image: -webkit-linear-gradient(hsl(240, 35, 98), hsl(240, 35, 92));
+    background-image:         linear-gradient(hsl(240, 35, 98), hsl(240, 35, 92));
     &:after {
         content: "";
         display: table;
@@ -116,8 +120,15 @@ input[type="submit"] {
     width: 40%;
     padding-right: .5rem;
     box-sizing: border-box;
+    h2 {
+        margin: 0;
+    }
     img {
         width: 100%;
+    }
+    span {
+        opacity: .7;
+        font-style: italic;
     }
 }
 
@@ -127,4 +138,11 @@ input[type="submit"] {
     p {
         margin: 0;
     }
+}
+
+.read-more {
+    position: absolute;
+    bottom: .5rem;
+    right: .5rem;
+    color: #3369EA
 }
