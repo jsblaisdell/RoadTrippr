@@ -1,97 +1,130 @@
+// ============================================================ //
+// ========================== GLOBAL ========================== //
+// ============================================================ //
+
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); // make transparent link selection, adjust last value opacity 0 to 1.0
+}
+
+html {
+    height: 100%
 }
 
 body {
     -webkit-touch-callout: none;                // prevent callout to copy image, etc when tap to hold
     -webkit-text-size-adjust: none;             // prevent webkit from resizing text to fit
     -webkit-user-select: none;                  // prevent copy paste, to allow, change 'none' to 'text'
-    background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
+    background-image: url("../img/pw_maze_black.png");
+    // background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    // background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    // background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    // background-image:-webkit-gradient(
+    //     linear,
+    //     left top,
+    //     left bottom,
+    //     color-stop(0, #A7A7A7),
+    //     color-stop(0.51, #E4E4E4)
+    // );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
+    // font-size:12px;
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
+    // text-transform:uppercase;
     width:100%;
 }
 
-// Portrait layout (default)
-.app {
-    background:url(../img/logo.png) no-repeat center top; // 170px x 200px
-    position:absolute;             // position in the center of the screen
-    left:50%;
-    top:50%;
-    height:50px;                   // text area height
-    width:225px;                   // text area width
-    text-align:center;
-    padding:180px 0px 0px 0px;     // image height is 200px (bottom 20px are overlapped with text)
-    margin:-115px 0px 0px -112px;  // offset vertical: half of image height and text area height
-                                   // offset horizontal: half of text area width
+// ============================================================ //
+// ========================== HEADER ========================== //
+// ============================================================ //
+
+h1 {
+    text-align: center;
+    color: #eee;
+    line-height: 2em;
+    margin: 0;
+    background-color: rgba(255,255,255,.05);
+    text-shadow: 0 1px 4px 1px black;
 }
 
-// Landscape layout (with min-width)
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  // padding-top + padding-bottom + text area = image height
-        margin:-90px 0px 0px -198px;  // offset vertical: half of image height
-                                      // offset horizontal: half of image width and text area width
+// ============================================================ //
+// =========================== MAIN =========================== //
+// ============================================================ //
+
+.wrapper {
+    padding: .8rem;
+    background-color: rgba(255,255,255,.3);
+    min-height: 100%;
+}
+
+// ============================================================ //
+// =========================== FORM =========================== //
+// ============================================================ //
+
+input {
+    width: 100%;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding: .5rem;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: .5rem;
+}
+
+input[type="text"] {
+    text-align: center;
+    border: 3px solid white;
+    box-shadow: 0 0 3px rgba(0,0,0,.5), 0 0 2px 1px rgba(0,0,0,.5) inset;
+    &:active, &:focus {
+        outline: none;
+        background-color: #fda;
     }
 }
 
-h1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+input[type="submit"] {
+    background-color: #3369EA;
+    color: white;
+    text-shadow: 0 1px 1px rgba(0,0,0,.5);
+    border-bottom: 2px solid #2359DA;
+    &:active, &:focus {
+        outline: none;
+        background-color: #1349CA;
+        border-bottom: 2px solid #0339BA;
+    }
 }
 
-.event {
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
+// ============================================================ //
+// ========================== RESULT ========================== //
+// ============================================================ //
+
+.result {
+    background-color: #fff;
+    padding: .5rem;
+    margin-bottom: .8rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0px rgba(0,0,0,.5);
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
-.event.listening {
-    background-color:#333333;
-    display:block;
+.title-section {
+    float: left;
+    width: 40%;
+    padding-right: .5rem;
+    box-sizing: border-box;
+    img {
+        width: 100%;
+    }
 }
 
-.event.received {
-    background-color:#4B946A;
-    display:none;
-}
-
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
-
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
-
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+.info-section {
+    float: left;
+    width: 60%;
+    p {
+        margin: 0;
+    }
 }
