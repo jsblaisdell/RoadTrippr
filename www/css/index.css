@@ -102,3 +102,6 @@ input[type="submit"], .full-button {
   bottom: .5rem;
   right: .5rem;
   color: #3369ea; }
+
+.map-wrap {
+  overflow: auto; }
